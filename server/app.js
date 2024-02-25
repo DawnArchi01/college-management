@@ -4,7 +4,15 @@ const mongoose = require("mongoose");
 const dotenv = require('dotenv')
 app.use(express.json());
 const cors = require("cors");
-app.use(cors());
+
+app.use(cors(
+    {
+        origin:["https://crud-frontend-app.vercel.app"],
+        methods:["POST","PUT","DELETE","GET"],
+        credentials: true
+    }
+));
+
 const bcrypt = require("bcryptjs");
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
