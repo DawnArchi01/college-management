@@ -7,7 +7,7 @@ const cors = require("cors");
 
 app.use(cors(
     {
-        origin:["https://crud-frontend-app.vercel.app"],
+        origin:[""],
         methods:["POST","PUT","DELETE","GET"],
         credentials: true
     }
@@ -21,8 +21,8 @@ app.use("/files", express.static("files"))
 
 const jwt = require("jsonwebtoken");
 dotenv.config({ path: '../config.env'})
-const JWT_SECRET = "hvdvay6ert72839289()aiyg8t87qt72393293883uhefiuh78ttq3ifi78272jbkj?[]]pou89ywe"
-const mongoUrl = "mongodb+srv://workemail2dawn:math45ematics@cluster0.p6ua68w.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const JWT_SECRET = process.env.JWT_KEY
+const mongoUrl = process.env.MONGODB_URL
 
 mongoose
   .connect(mongoUrl, {
